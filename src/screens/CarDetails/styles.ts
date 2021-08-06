@@ -79,5 +79,16 @@ font-family: ${({ theme }) => theme.fonts.primary_400};
     text-align: justify;
 
     margin-top: 23px;
-    
+    line-height: ${RFValue(25)}px;
+`;
+
+export const Accesories = styled.View`
+    width: 100%;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 16px;
 `;
