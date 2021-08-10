@@ -13,6 +13,7 @@ import peopleSvg from '../../assets/people.svg';
 
 
 import * as S from './styles'
+import { Button } from '../../components/Button';
 
 export function CarDetails() {
     return (
@@ -52,6 +53,13 @@ export function CarDetails() {
                 </S.About>
                 
             </S.Content>
+
+            <S.Footer>
+                <Button 
+                    title="Confirmar"
+                />
+            </S.Footer>
+
         </S.Container>
     )
 }
