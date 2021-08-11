@@ -8,6 +8,7 @@ import ArrowSvg from '../../assets/arrow.svg';
 
 import * as S from './styles';
 import { Button } from '../../components/Button';
+import { Calendar } from '../../components/Calendar';
 
 
 export function Scheduling(){
@@ -52,7 +53,7 @@ export function Scheduling(){
             </S.Header>
 
             <S.Content>
-
+                <Calendar />
             </S.Content>
 
             <S.Footer>
