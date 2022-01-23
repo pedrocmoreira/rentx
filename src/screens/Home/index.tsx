@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -7,6 +8,8 @@ import { Car } from '../../components/Car';
 import * as S from './styles'
 
 export function Home() {
+    const navigation = useNavigation();
+
     const carDataOne = {
         brand: 'Audi',
         name: 'RS 5 Coupé',
@@ -16,24 +19,9 @@ export function Home() {
         },
         thumbnail: 'https://www.motortrend.com/uploads/sites/10/2018/05/2018-audi-rs5-4wd-coupe-angular-front.png?fit=around%7C875:492.1875'
     } 
-    const carDataTwo = {
-        brand: 'Audi',
-        name: 'RS 5 Coupé',
-        rent: {
-            period: 'AO DIA',
-            price:  120
-        },
-        thumbnail: 'https://www.motortrend.com/uploads/sites/10/2018/05/2018-audi-rs5-4wd-coupe-angular-front.png?fit=around%7C875:492.1875'
-    }
 
-    const carDataThree = {
-        brand: 'Audi',
-        name: 'RS 5 Coupé',
-        rent: {
-            period: 'AO DIA',
-            price:  120
-        },
-        thumbnail: 'https://www.motortrend.com/uploads/sites/10/2018/05/2018-audi-rs5-4wd-coupe-angular-front.png?fit=around%7C875:492.1875'
+    function handleCarDetails(){
+        navigation.navigate('CarDetails');
     }
 
     return (
@@ -57,7 +45,7 @@ export function Home() {
             <S.CarList 
             data={[1, 2, 3, 4, 5, 6, 7]}
             keyExtractor={item => String(item)}
-            renderItem={({ item }) => <Car data={carDataOne} />}
+            renderItem={({ item }) => <Car data={carDataOne} onPress={handleCarDetails} />}
             />
         </S.Container>
     )

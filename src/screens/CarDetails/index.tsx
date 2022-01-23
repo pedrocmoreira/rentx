@@ -14,8 +14,15 @@ import peopleSvg from '../../assets/people.svg';
 
 import * as S from './styles'
 import { Button } from '../../components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 export function CarDetails() {
+    const navigation = useNavigation();
+
+    function handleConfirmRental(){
+        navigation.navigate('Scheduling');
+    }
+
     return (
         <S.Container>
             <S.Header>
@@ -56,7 +63,8 @@ export function CarDetails() {
 
             <S.Footer>
                 <Button 
-                    title="Confirmar"
+                    title="Escolher período do aluguel"
+                    onPress={handleConfirmRental}
                 />
             </S.Footer>
 

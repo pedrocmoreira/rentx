@@ -11,7 +11,7 @@ export function ConfirmButton({
   ...rest
 }: Props){
   return(
-    <S.Container>
+    <S.Container {...rest}>
         <S.Title>{title}</S.Title>
     </S.Container>
   );
