@@ -14,50 +14,62 @@ import peopleSvg from '../../assets/people.svg';
 
 import * as S from './styles'
 import { Button } from '../../components/Button';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute} from '@react-navigation/native';
+import { CarDTO } from '../../dtos/CarDTO';
+
+interface Params {
+    car: CarDTO;
+}
 
 export function CarDetails() {
     const navigation = useNavigation();
+    const route = useRoute();
+    const { car } = route.params as Params;
 
     function handleConfirmRental(){
         navigation.navigate('Scheduling');
     }
 
+    function handleGoBack(){
+        navigation.navigate('Home');
+    }
+
     return (
         <S.Container>
             <S.Header>
-                <BackButton onPress={() => { }} />
+                <BackButton onPress={ handleGoBack } />
             </S.Header>
 
             <S.CarImages>
                 <ImageSlider
-                    imagesUrl={['https://www.motortrend.com/uploads/sites/10/2018/05/2018-audi-rs5-4wd-coupe-angular-front.png?fit=around%7C875:492.1875']}
+                    imagesUrl={car.photos}
                 />
             </S.CarImages>
 
             <S.Content>
                 <S.Details>
                     <S.Description>
-                        <S.Brand>Lamborghini</S.Brand>
-                        <S.Name>Huracan</S.Name>
+                        <S.Brand>{car.brand}</S.Brand>
+                        <S.Name>{car.name}</S.Name>
                     </S.Description>
                     <S.Rent>
-                        <S.Period>Ao dia</S.Period>
-                        <S.Price>R$ 580</S.Price>
+                        <S.Period>{car.rent.period}</S.Period>
+                        <S.Price>R${car.rent.price}</S.Price>
                     </S.Rent>
                 </S.Details>
-                <S.Accesories>
-                    <Accessory name="380Km/h" icon={speedSvg}/>
-                    <Accessory name="3.2s" icon={accelerationSvg}/>
-                    <Accessory name="800 HP" icon={forceSvg}/>
-                    <Accessory name="Gasolina" icon={gasolineSvg}/>
-                    <Accessory name="Auto" icon={exchangeSvg}/>
-                    <Accessory name="2 Pessoas" icon={peopleSvg}/>
-                </S.Accesories>
-                <S.About>
-                    Este é um automóvel esportivo. Surgiu do lendário 
-                    touro de lide indultado na praça Real Maestranza de Sevilla. É um belíssimo carro para quem gosta de acelerar.
-                </S.About>
+                <S.Accessories>
+                    {
+                        car.accessories.map(accessory => (
+                            <Accessory 
+                                key={accessory.type}
+                                name={accessory.name}
+                                icon={speedSvg}
+
+                            />
+                        ))     
+                    }   
+                </S.Accessories>
+                <S.About>{car.about}</S.About>
                 
             </S.Content>
 

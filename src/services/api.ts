@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const { IP } = process.env;
+
 const api = axios.create({
-  baseURL: 'http://seuIP:3333',
+  baseURL: `http://${IP}:3333`,
 });
 
 export { api };

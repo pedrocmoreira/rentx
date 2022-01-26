@@ -6,7 +6,7 @@
     "web": "expo start --web",
     "start": "react-native start",
     "test": "jest",
-    "api": "json-server ./src/services/server.json --host seuIP --port 3333 --delay 700"
+    "api": "json-server ./src/services/server.json --host SeuIp  --port 3333 --delay 700"
   },
   "dependencies": {
     "@expo-google-fonts/archivo": "^0.2.0",
@@ -15,6 +15,7 @@
     "@react-navigation/native": "5.x",
     "@react-navigation/stack": "5.x",
     "axios": "^0.25.0",
+    "babel-plugin-inline-dotenv": "^1.6.0",
     "expo": "~41.0.1",
     "expo-app-loading": "^1.1.2",
     "expo-font": "~9.1.0",
