@@ -3,14 +3,7 @@ import React from 'react';
 import { BackButton } from '../../components/BackButton';
 import { Accessory } from '../Accessory';
 import { ImageSlider } from '../ImageSlider';
-
-import speedSvg from '../../assets/speed.svg';
-import accelerationSvg from '../../assets/acceleration.svg';
-import forceSvg from '../../assets/force.svg';
-import gasolineSvg from '../../assets/gasoline.svg';
-import exchangeSvg from '../../assets/exchange.svg';
-import peopleSvg from '../../assets/people.svg';
-
+import { getAccessoryIcon } from '../../utils/getAccessoryIcon';
 
 import * as S from './styles'
 import { Button } from '../../components/Button';
@@ -63,7 +56,7 @@ export function CarDetails() {
                             <Accessory 
                                 key={accessory.type}
                                 name={accessory.name}
-                                icon={speedSvg}
+                                icon={getAccessoryIcon(accessory.type)}
 
                             />
                         ))     

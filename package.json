@@ -15,7 +15,6 @@
     "@react-navigation/native": "5.x",
     "@react-navigation/stack": "5.x",
     "axios": "^0.25.0",
-    "babel-plugin-inline-dotenv": "^1.6.0",
     "expo": "~41.0.1",
     "expo-app-loading": "^1.1.2",
     "expo-font": "~9.1.0",
