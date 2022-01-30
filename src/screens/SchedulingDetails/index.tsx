@@ -18,9 +18,7 @@ import peopleSvg from '../../assets/people.svg';
 import * as S from './styles'
 import { Button } from '../../components/Button';
 import { RFValue } from 'react-native-responsive-fontsize';
-import theme from '../../styles/theme';
 import { useNavigation } from '@react-navigation/native';
-import { SchedulingComplete } from '../SchedulingComplete';
 
 export function SchedulingDetails() {
     const theme = useTheme();
@@ -30,10 +28,14 @@ export function SchedulingDetails() {
         navigation.navigate('SchedulingComplete');
     }
 
+    function handleGoBack(){
+        navigation.goBack();
+    }
+
     return (
         <S.Container>
             <S.Header>
-                <BackButton onPress={() => { }} />
+                <BackButton onPress={ handleGoBack } />
             </S.Header>
 
             <S.CarImages>
