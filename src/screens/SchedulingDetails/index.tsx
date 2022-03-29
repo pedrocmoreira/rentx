@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 
 import { BackButton } from '../../components/BackButton';
 import { Accessory } from '../Accessory';
-import { ImageSlider } from '../ImageSlider';
+import { ImageSlider } from '../../components/ImageSlider';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { api } from '../../services/api';

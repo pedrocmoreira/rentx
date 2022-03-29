@@ -41,7 +41,6 @@ export function Home() {
                 setLoading(false);
             }
         }
-
         fetchCars();
     });
 
@@ -53,13 +52,13 @@ export function Home() {
                 translucent
             />
             <S.Header>
-                <S.HeaderContent>
+                <S.HeaderContent> 
                     <Logo
                         width={RFValue(108)}
                         height={RFValue(12)}
                     />
                     <S.TotalCars>
-                        Total de 12 carros
+                        Total de {cars.length} carros
                     </S.TotalCars>
                 </S.HeaderContent>
             </S.Header>

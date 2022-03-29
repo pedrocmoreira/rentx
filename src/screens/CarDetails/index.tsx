@@ -2,11 +2,11 @@ import React from 'react';
 
 import { BackButton } from '../../components/BackButton';
 import { Accessory } from '../Accessory';
-import { ImageSlider } from '../ImageSlider';
 import { getAccessoryIcon } from '../../utils/getAccessoryIcon';
 
 import * as S from './styles'
 import { Button } from '../../components/Button';
+import { ImageSlider } from '../../components/ImageSlider';
 import { useNavigation, useRoute} from '@react-navigation/native';
 import { CarDTO } from '../../dtos/CarDTO';
 
