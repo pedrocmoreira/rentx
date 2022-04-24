@@ -48,6 +48,7 @@ export function ImageSlider({ imagesUrl }: Props) {
                     </S.CarImageWrapper>
                 )}
                 horizontal
+                pagingEnabled
                 showsHorizontalScrollIndicator={false}
                 onViewableItemsChanged={indexChange.current}
             />

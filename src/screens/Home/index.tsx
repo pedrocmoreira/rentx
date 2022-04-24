@@ -42,7 +42,7 @@ export function Home() {
             }
         }
         fetchCars();
-    });
+    }, []);
 
     return (
         <S.Container>
