@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
-import { StatusBar, StyleSheet } from 'react-native';
+import { StatusBar, StyleSheet, BackHandler } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useTheme } from 'styled-components';
@@ -23,7 +23,7 @@ import { api } from '../../services/api';
 import { CarDTO } from '../../dtos/CarDTO';
 
 import * as S from './styles'
-import { Load } from '../../components/Load';
+import { LoadAnimation } from '../../components/LoadAnimation';
 
 export function Home() {
     const [cars, setCars] = useState<CarDTO[]>([]);
@@ -42,15 +42,15 @@ export function Home() {
     });
 
     const onGestureEvent = useAnimatedGestureHandler({
-        onStart(_, ctx: any){
+        onStart(_, ctx: any) {
             ctx.positionX = positionX.value;
             ctx.positionY = positionY.value;
         },
-        onActive(event, ctx: any){
+        onActive(event, ctx: any) {
             positionX.value = ctx.positionX + event.translationX;
             positionY.value = ctx.positionY + event.translationY;
         },
-        onEnd(){
+        onEnd() {
             positionX.value = withSpring(0);
             positionY.value = withSpring(0);
         }
@@ -81,6 +81,12 @@ export function Home() {
         fetchCars();
     }, []);
 
+    useEffect(() => {
+        BackHandler.addEventListener('hardwareBackPress', () => {
+            return true;
+        });
+    }, []);
+
     return (
         <S.Container>
             <StatusBar
@@ -94,12 +100,15 @@ export function Home() {
                         width={RFValue(108)}
                         height={RFValue(12)}
                     />
-                    <S.TotalCars>
-                        Total de {cars.length} carros
-                    </S.TotalCars>
+                    {
+                        !loading &&
+                        <S.TotalCars>
+                            Total de {cars.length} carros
+                        </S.TotalCars>
+                    }
                 </S.HeaderContent>
             </S.Header>
-            {loading ? <Load /> :
+            {loading ? <LoadAnimation /> :
                 <S.CarList
                     data={cars}
                     keyExtractor={item => String(item.id)}

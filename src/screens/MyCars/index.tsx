@@ -8,7 +8,7 @@ import { CarDTO } from '../../dtos/CarDTO';
 import { api } from '../../services/api';
 import { AntDesign } from '@expo/vector-icons';
 import * as S from './styles';
-import { Load } from '../../components/Load';
+import { LoadAnimation } from '../../components/LoadAnimation';
 
 interface CarProps {
   id: string;
@@ -67,7 +67,7 @@ export function MyCars() {
           Conforto segurança e praticidade.
         </S.SubTitle>
       </S.Header>
-      {loading ? <Load /> :
+      {loading ? <LoadAnimation /> :
         <S.Content>
           <S.Appointments>
             <S.AppointmentsTitle>Agendamentos feitos</S.AppointmentsTitle>
