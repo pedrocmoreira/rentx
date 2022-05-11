@@ -13,6 +13,7 @@ import {
   Footer,
   Form,
 } from './styles';
+import { PasswordInput } from '../PasswordInput';
 
 export function SignIn() {
   return (
@@ -37,6 +38,11 @@ export function SignIn() {
           keyboardType='email-address'
           autoCorrect={false}
           autoCapitalize='none'
+        />
+
+        <PasswordInput
+          iconName='lock'
+          placeholder='Senha'
         />
       </Form>
 
