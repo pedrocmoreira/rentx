@@ -42,6 +42,7 @@ export function SignIn() {
       </Header>
 
       <Form>
+        //Fazer refactor dos inputs
         <Input
           iconName='mail'
           placeholder='E-mail'
