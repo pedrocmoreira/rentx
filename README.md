@@ -1,8 +1,13 @@
 # RentX #
+![App Screenshot](.github/cover.png)
 
 Status - Em desenvolvimento
 
-Aplicação feita em React Native 
+## 👨🏽‍💻 Stack
+-  [ ] React Native
+-  [ ] Typescript
+-  [ ] Expo
+-  [ ] JSON Server - Para consumo de API em JSON
 
 
 Instalação 
